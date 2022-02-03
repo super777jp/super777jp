@@ -1,1 +1,17 @@
-http://www.onionsoft.net/hsp/
+*Start
+    screen 0,600,400,SCREEN_FIXEDSIZE
+    title "シューティング・ゲームのミニ講座"
+    redraw 0
+    color:boxf
+    color $00,$FF,$FF:font "HG明朝E",50:pos (600-50*11)/2,100:mes "シューティング・ゲーム"
+    color $FF,$FF,$00:font "HG明朝E",30:pos (600-30* 6)/2,180:mes "～ミニ講座～"
+    color $FF,$FF,$FF:font "HG明朝E",16:pos (600- 8*15)/2,250:mes "[SPC]キーで開始"
+    color $FF,$FF,$FF:font "HG明朝E",16:pos (600- 8*15)/2,282:mes "[ESC]キーで終了"
+    redraw 1
+    repeat
+        stick key
+        if(key & $10):break
+        if(key & $80):end
+        await 20
+    loop
+*Main
